@@ -24,3 +24,5 @@ vim.keymap.set('n', 'Q', '<nop>')
 
 vim.keymap.set('v', '>', '>gv')
 vim.keymap.set('v', '<', '<gv')
+
+vim.keymap.set('n', 'U', '<cmd>undo<cr>')
