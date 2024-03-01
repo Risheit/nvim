@@ -11,6 +11,9 @@ return {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
         event = { 'BufReadPre', 'BufNewFile' },
+        config = function()
+            vim.keymap.set("n", "<leader>oo", ":LspZeroFormat<CR>")
+        end
     },
     {
         'neovim/nvim-lspconfig',
@@ -26,6 +29,18 @@ return {
     },
     {
         'L3MON4D3/LuaSnip',
+        event = 'InsertEnter',
+    },
+    {
+        'hrsh7th/cmp-buffer',
+        event = 'InsertEnter',
+    },
+    {
+        'hrsh7th/cmp-path',
+        event = 'InsertEnter',
+    },
+    {
+        'hrsh7th/cmp-vsnip',
         event = 'InsertEnter',
     },
 }

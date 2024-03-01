@@ -10,6 +10,9 @@ Personal neovim configuration.
  - `<ldr>fg` -- find in grep
  - `<ldr>fb` -- find in buffers
  - `<ldr>fh` -- find in help tags
+ - `<ldr>oo` -- format current file
+ - `<ldr>rr` -- Rename symbol
+ - `<ldr>x<key>` -- Find diagnostics with Trouble
  - `J` -- join next line
  - `>, <` -- in visual, indent/unindent
  - `s<key><key>` -- jump to occurance of `<key><key>`
