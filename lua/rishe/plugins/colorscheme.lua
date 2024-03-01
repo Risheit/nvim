@@ -1,6 +1,6 @@
 return {
-    'catppuccin/nvim', 
-    name = 'catppuccin', 
+    'catppuccin/nvim',
+    name = 'catppuccin',
     priority = 1000,
     config = function ()
         require('catppuccin').setup({
@@ -9,7 +9,7 @@ return {
                 light = 'latte',
                 dark = 'mocha',
             },
-            transparent_background = true, -- disables setting the background color.
+            -- transparent_background = true, -- disables setting the background color.
             show_end_of_buffer = false, -- shows the '~' characters after the end of buffers
             term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
             dim_inactive = {
@@ -55,6 +55,6 @@ return {
 
         -- setup must be called before loading
         vim.cmd.colorscheme 'catppuccin'
-                -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     end,
 }
