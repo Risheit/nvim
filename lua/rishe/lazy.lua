@@ -22,11 +22,19 @@ lsp_zero.on_attach(function(_, bufnr)
     -- to learn the available actions
     lsp_zero.default_keymaps({ buffer = bufnr })
 
+    local function quickfix()
+        vim.lsp.buf.code_action({
+            filter = function(a) return a.isPreferred end,
+            apply = true
+        })
+    end
+
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set('n', '<leader>rr', function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set('n', '<leader>lp', function() vim.lsp.diagnostic.goto_prev() end, opts)
     vim.keymap.set('n', '<leader>ln', function() vim.lsp.diagnostic.goto_next() end, opts)
+    vim.keymap.set('n', '<leader>qf', quickfix, opts)
 end)
 
 require('mason').setup({})
@@ -44,22 +52,7 @@ require('mason-lspconfig').setup({
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
 cmp.setup({
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-        end,
-    },
     sources = {
         { name = 'nvim_lsp' },
         { name = 'path' },
@@ -76,3 +69,7 @@ cmp.setup({
 })
 
 require('lspconfig').clangd.setup {}
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.offsetEncoding = 'utf-8'
+require('lspconfig').clangd.setup { capabilities = capabilities }
