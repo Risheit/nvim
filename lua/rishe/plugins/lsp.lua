@@ -43,4 +43,8 @@ return {
         'hrsh7th/cmp-vsnip',
         event = 'InsertEnter',
     },
+    {
+        'hrsh7th/cmp-nvim-lsp-signature-help',
+        event = 'InsertEnter',
+    },
 }
