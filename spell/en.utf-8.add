@@ -1,0 +1,16 @@
+mk
+https
+makefile
+recursing
+TODO
+Precompiled
+src
+deps
+exe
+INCDIRS
+BUILDDIR
+SRCDIR
+CFLAGS
+#NKFLAGS
+LNKFLAGS
+config
