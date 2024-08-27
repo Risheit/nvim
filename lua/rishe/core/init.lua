@@ -1,3 +1,2 @@
-require("rishe.core.sets")
-require("rishe.core.remaps")
-
+require('rishe.core.config')
+require('rishe.core.sets')

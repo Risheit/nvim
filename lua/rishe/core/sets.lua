@@ -1,30 +1,34 @@
-vim.g.mapleader = ' '
+local set = vim.keymap.set
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+set('n', '<leader>pp', vim.cmd.Ex, { desc = 'Exits to netrw' })
 
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move line up' })
+set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move line down' })
 
-vim.opt.smartindent = true
+set('n', 'J', 'mzJ`z', { desc = 'Join the line down' })
+set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll window downwards in the buffer' })
+set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll window upwards in the buffer' })
+set('n', 'n', 'nzzzv', { desc = 'Repeat the latest "/" or "?"' })
+set('n', 'N', 'Nzzzv', { desc = 'Rpeat the latest "/" or "?" in the opposite direction' })
 
-vim.opt.wrap = false
+set('n', 'U', '<C-r>', { desc = 'Undo' })
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+set('x', '<leader>p', '"_dP', { desc = 'Paste over selection' })
 
-vim.opt.termguicolors = true
+set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
+set('n', '<leader>Y', '"+Y', { desc = 'Copy rest of line to system clipboard' })
 
-vim.opt.scrolloff = 5
-vim.opt.signcolumn = 'yes'
-vim.opt.isfname:append('@-@')
+set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without yanking' })
+set({ 'n', 'v' }, '<leader>D', '"_D', { desc = 'Delete rest of line without yanking' })
 
-vim.opt.updatetime = 50
+set(
+	'n',
+	'<leader>s',
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = 'Find and replace the word under the cursor' }
+)
 
-vim.opt.colorcolumn = ''
+set('n', 'Q', '<nop>') -- Remove Q
 
-vim.opt.colorcolumn = '120'
-
-vim.opt.spell = true
+set('v', '>', '>gv', { desc = 'Increase indent' })
+set('v', '<', '<gv', { desc = 'Decrease indent' })
