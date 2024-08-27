@@ -15,7 +15,7 @@ return {
 		end, { desc = 'Document Diagnostics' })
 		vim.keymap.set('n', '<leader>xl', function()
 			require('trouble').toggle('loclist')
-		end, { desc = 'Trouble locatio list' })
+		end, { desc = 'Trouble location list' })
 		vim.keymap.set('n', 'gR', function()
 			require('trouble').toggle('lsp_references')
 		end, { desc = 'LSP references' })

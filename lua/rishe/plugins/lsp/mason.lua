@@ -35,6 +35,14 @@ return {
 					local lua_opts = lsp_zero.nvim_lua_ls()
 					lsp_config.lua_ls.setup(lua_opts)
 				end,
+				clangd = function()
+					lsp_config.clangd.setup({
+						cmd = {
+							'clangd',
+							'--offset-encoding=utf-16',
+						},
+					})
+				end,
 			},
 		})
 	end,
