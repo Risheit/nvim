@@ -14,3 +14,10 @@ CFLAGS
 #NKFLAGS
 LNKFLAGS
 config
+TESTDIR
+clangd
+json
+structs
+param
+func
+stackoverflow
