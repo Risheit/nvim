@@ -16,7 +16,7 @@ set('n', 'U', '<C-r>', { desc = 'Undo' })
 set('x', '<leader>p', '"_dP', { desc = 'Paste over selection' })
 
 set({ 'n', 'v' }, '<leader>y', '"+y', { desc = 'Copy to system clipboard' })
-set('n', '<leader>Y', '"+Y', { desc = 'Copy rest of line to system clipboard' })
+set({ 'n', 'v' }, '<leader>Y', '"+Y', { desc = 'Copy rest of line to system clipboard' })
 
 set({ 'n', 'v' }, '<leader>d', '"_d', { desc = 'Delete without yanking' })
 set({ 'n', 'v' }, '<leader>D', '"_D', { desc = 'Delete rest of line without yanking' })
@@ -28,7 +28,10 @@ set(
 	{ desc = 'Find and replace the word under the cursor' }
 )
 
-set('n', 'Q', '<nop>') -- Remove Q
+set('n', 'Q', '<nop>')
+set('n', '<C-q>', '<nop>')
 
 set('v', '>', '>gv', { desc = 'Increase indent' })
 set('v', '<', '<gv', { desc = 'Decrease indent' })
+
+set('i', '<C-q>', '<C-[>', { desc = 'Exit insert mode' })
