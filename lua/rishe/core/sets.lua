@@ -35,3 +35,6 @@ set('v', '>', '>gv', { desc = 'Increase indent' })
 set('v', '<', '<gv', { desc = 'Decrease indent' })
 
 set('i', '<C-q>', '<C-[>', { desc = 'Exit insert mode' })
+
+set('n', '<leader>kk', '<Cmd>LspStop<CR>', { desc = 'Stop Lsp Servers' })
+set('n', '<leader>km', '<Cmd>LspStart<CR>', { desc = 'Start Lsp Servers' })
